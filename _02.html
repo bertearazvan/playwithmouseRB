@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        body {
+            background-color: white;
+        }
+
+        #red {
+            width: 10vw;
+            height: 10vw;
+            position: absolute;
+            background-color: coral;
+            color: white;
+        }
+
+        #yellow {
+            width: 10vw;
+            height: 10vw;
+            position: absolute;
+            background-color: khaki;
+            color: white;
+        }
+
+        #blue {
+            width: 10vw;
+            height: 10vw;
+            position: absolute;
+            background-color: deepskyblue;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="yellow"></div>
+    <div id="blue"></div>
+    <div id="red"></div>
+    <script>
+        const red = document.querySelector("#red");
+        const yellow = document.querySelector("#yellow");
+        const blue = document.querySelector("#blue");
+        let redCX = red.clientWidth / 2;
+        let redCY = red.clientHeight / 2;
+        let mouseX, mouseY;
+        let redPX, redPY;
+        let steps = 30;
+
+        let blueCX = blue.clientWidth / 2;
+        let blueCY = blue.clientHeight / 2;
+        let bluePX, bluePY;
+        let steps2 = 50;
+
+        let yellowCX = yellow.clientWidth / 2;
+        let yellowCY = yellow.clientHeight / 2;
+        let yellowPX, yellowPY;
+        let steps3 = 70;
+
+        document.addEventListener("DOMContentLoaded", init);
+
+        function init() {
+            document.addEventListener("mousemove", mouseMove);
+            moveRAF();
+        }
+
+        function mouseMove(e) {
+            mouseX = e.pageX;
+            mouseY = e.pageY;
+        }
+
+        function moveRAF() {
+            redPX = red.offsetLeft;
+            redPY = red.offsetTop;
+
+            redPX += (mouseX - redPX - redCX) / steps;
+            redPY += (mouseY - redPY - redCY) / steps;
+
+            red.style.left = redPX + "px";
+            red.style.top = redPY + "px";
+
+            bluePX = blue.offsetLeft;
+            bluePY = blue.offsetTop;
+
+            bluePX += (mouseX - bluePX - blueCX) / steps2;
+            bluePY += (mouseY - bluePY - blueCY) / steps2;
+
+            blue.style.left = bluePX + "px";
+            blue.style.top = bluePY + "px";
+
+            yellowPX = yellow.offsetLeft;
+            yellowPY = yellow.offsetTop;
+
+            yellowPX += (mouseX - yellowPX - yellowCX) / steps3;
+            yellowPY += (mouseY - yellowPY - yellowCY) / steps3;
+
+            yellow.style.left = yellowPX + "px";
+            yellow.style.top = yellowPY + "px";
+
+            requestAnimationFrame(moveRAF);
+        }
+
+    </script>
+</body>
+
+</html>

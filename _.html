@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        body {
+            background-color: white;
+        }
+
+        #red {
+            width: 20vw;
+            height: 20vw;
+            position: absolute;
+            background-color: coral;
+            color: white;
+        }
+
+        #yellow {
+            width: 20vw;
+            height: 20vw;
+            position: absolute;
+            background-color: khaki;
+            color: white;
+        }
+
+        #blue {
+            width: 20vw;
+            height: 20vw;
+            position: absolute;
+            background-color: deepskyblue;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="red"></div>
+    <div id="yellow"></div>
+    <div id="blue"></div>
+    <script>
+        const red = document.querySelector("#red");
+
+        document.addEventListener("DOMContentLoaded", init);
+
+        function init() {
+            red.addEventListener("mousemove", mouseMove);
+        }
+
+        function mouseMove(e) {
+            console.log(e);
+        }
+
+    </script>
+</body>
+
+</html>
